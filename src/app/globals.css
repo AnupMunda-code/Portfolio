@@ -74,7 +74,6 @@ body {
   filter: blur(90px);
   opacity: 0.5;
   pointer-events: none;
-  will-change: transform;
 }
 
 @keyframes drift {
@@ -93,14 +92,28 @@ html.light .orb {
   opacity: 0.3;
 }
 
-.orb-1 {
-  animation: drift 18s ease-in-out infinite;
+/* Drift animation only on larger screens — too heavy for mobile GPUs */
+@media (min-width: 768px) {
+  .orb-1 {
+    animation: drift 18s ease-in-out infinite;
+    will-change: transform;
+  }
+  .orb-2 {
+    animation: drift 22s ease-in-out infinite reverse;
+    will-change: transform;
+  }
+  .orb-3 {
+    animation: drift 26s ease-in-out infinite;
+    will-change: transform;
+  }
 }
-.orb-2 {
-  animation: drift 22s ease-in-out infinite reverse;
-}
-.orb-3 {
-  animation: drift 26s ease-in-out infinite;
+
+/* Lighter blur on mobile to reduce paint cost */
+@media (max-width: 767px) {
+  .orb {
+    filter: blur(48px);
+    opacity: 0.4;
+  }
 }
 
 /* Subtle grain overlay */

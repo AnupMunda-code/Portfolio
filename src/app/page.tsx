@@ -4,6 +4,7 @@ import { Counter } from "@/components/Counter";
 import { ParallaxOrbs } from "@/components/ParallaxOrbs";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ContactForm } from "@/components/ContactForm";
+import { BackToTop } from "@/components/BackToTop";
 
 const stats = [
   { value: 9, suffix: "+", label: "Technologies" },
@@ -101,7 +102,7 @@ export default function Home() {
 
       <div className="relative z-[2]">
         {/* Nav */}
-        <header id="top" className="sticky top-0 z-20 border-b border-border bg-background/60 backdrop-blur-xl">
+        <header id="top" className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur-md md:backdrop-blur-xl">
           <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
             <Link href="/" className="font-mono text-lg font-bold">
               anup<span className="gradient-text">.dev</span>
@@ -371,9 +372,7 @@ export default function Home() {
         <footer className="border-t border-border">
           <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 font-mono text-sm text-muted sm:flex-row">
             <span>Designed &amp; built by Anup Munda · Next.js &amp; Tailwind CSS</span>
-            <a href="#top" className="transition-colors hover:text-accent">
-              Back to top ↑
-            </a>
+            <BackToTop />
           </div>
         </footer>
       </div>
