@@ -29,7 +29,20 @@ const social = {
   email: "mailto:anupmunda03@gmail.com",
   github: "https://github.com/AnupMunda-code",
   linkedin: "https://www.linkedin.com/in/anup-munda-2b9b832a6",
+  instagram: "https://www.instagram.com/anma0446",
+  twitter: "https://x.com/nma0446",
+  facebook: "https://www.facebook.com/share/1BJW8xt4jF/",
+  reddit: "https://www.reddit.com/u/Alarming_Classic4041",
 };
+
+const socialLinks = [
+  { label: "GitHub", href: social.github },
+  { label: "LinkedIn", href: social.linkedin },
+  { label: "Instagram", href: social.instagram },
+  { label: "Twitter / X", href: social.twitter },
+  { label: "Facebook", href: social.facebook },
+  { label: "Reddit", href: social.reddit },
+];
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -185,29 +198,26 @@ export default function Home() {
             I&apos;m currently open to new opportunities and collaborations. Feel
             free to reach out — my inbox is always open!
           </p>
-          <div className="mt-8 flex justify-center gap-6">
+          <div className="mt-8 flex justify-center">
             <a
               href={social.email}
               className="rounded-md bg-accent px-6 py-3 font-medium text-background transition-opacity hover:opacity-90"
             >
               Say Hello
             </a>
-            <a
-              href={social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-md border border-border px-6 py-3 font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
-            >
-              GitHub
-            </a>
-            <a
-              href={social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-md border border-border px-6 py-3 font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
-            >
-              LinkedIn
-            </a>
+          </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-md border border-border px-5 py-2.5 font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </section>
       </main>
