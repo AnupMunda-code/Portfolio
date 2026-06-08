@@ -162,7 +162,7 @@ export default function Home() {
                   View my work
                 </a>
                 <a
-                  href={social.email}
+                  href="#contact"
                   className="rounded-full border border-border px-6 py-3 font-medium transition-colors hover:border-accent hover:text-accent sm:px-7"
                 >
                   Get in touch
@@ -217,14 +217,21 @@ export default function Home() {
             <Reveal delay={0.1}>
               <div className="max-w-2xl space-y-5 text-base leading-relaxed text-muted sm:text-lg">
                 <p>
-                  Hello! I&apos;m Anup, a developer focused on the MERN stack. I love
-                  turning ideas into functional, well-built web applications — from
-                  designing the database schema to shipping a polished user interface.
+                  Hello! I&apos;m Anup — a developer who loves building for the web and is
+                  genuinely curious about how technology shapes the world around us. I
+                  enjoy learning, experimenting, and turning ideas into things that work.
                 </p>
                 <p>
-                  My main focus right now is building full-stack projects that solve real
-                  problems, like my Inventory Management System. I&apos;m always learning
-                  and looking to take on new challenges.
+                  Lately I&apos;ve been diving into{" "}
+                  <span className="text-foreground">artificial intelligence</span> and
+                  machine learning — exploring how AI tools and models are changing the
+                  way we build software and solve problems. It&apos;s an exciting space,
+                  and I love seeing how fast it&apos;s evolving.
+                </p>
+                <p>
+                  I&apos;m a firm believer in continuous learning. There&apos;s always
+                  something new to pick up, and I&apos;m always growing my skills to
+                  become a better developer.
                 </p>
               </div>
             </Reveal>
