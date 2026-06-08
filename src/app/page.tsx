@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { Counter } from "@/components/Counter";
+import { ParallaxOrbs } from "@/components/ParallaxOrbs";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { ContactForm } from "@/components/ContactForm";
 
 const stats = [
   { value: 9, suffix: "+", label: "Technologies" },
@@ -93,12 +96,8 @@ function SectionLabel({ index, children }: { index: string; children: React.Reac
 export default function Home() {
   return (
     <div className="grain relative">
-      {/* Background glow orbs */}
-      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="orb orb-1 left-[-10%] top-[-5%] h-[40rem] w-[40rem] bg-accent/30" />
-        <div className="orb orb-2 right-[-10%] top-[20%] h-[35rem] w-[35rem] bg-accent2/30" />
-        <div className="orb orb-3 bottom-[-10%] left-[20%] h-[30rem] w-[30rem] bg-accent3/20" />
-      </div>
+      {/* Background glow orbs (parallax) */}
+      <ParallaxOrbs />
 
       <div className="relative z-[2]">
         {/* Nav */}
@@ -107,11 +106,14 @@ export default function Home() {
             <Link href="/" className="font-mono text-lg font-bold">
               anup<span className="gradient-text">.dev</span>
             </Link>
-            <div className="hidden gap-7 text-sm text-muted sm:flex">
-              <a href="#about" className="transition-colors hover:text-foreground">About</a>
-              <a href="#skills" className="transition-colors hover:text-foreground">Skills</a>
-              <a href="#projects" className="transition-colors hover:text-foreground">Projects</a>
-              <a href="#contact" className="transition-colors hover:text-foreground">Contact</a>
+            <div className="flex items-center gap-7">
+              <div className="hidden gap-7 text-sm text-muted sm:flex">
+                <a href="#about" className="transition-colors hover:text-foreground">About</a>
+                <a href="#skills" className="transition-colors hover:text-foreground">Skills</a>
+                <a href="#projects" className="transition-colors hover:text-foreground">Projects</a>
+                <a href="#contact" className="transition-colors hover:text-foreground">Contact</a>
+              </div>
+              <ThemeToggle />
             </div>
           </nav>
         </header>
@@ -120,12 +122,18 @@ export default function Home() {
           {/* Hero */}
           <section className="flex min-h-[88vh] flex-col justify-center py-20">
             <Reveal>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-                </span>
-                Available for opportunities
+              <div className="mb-7 flex items-center gap-4">
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-accent via-accent2 to-accent3 text-xl font-bold text-background">
+                  AM
+                  <span className="absolute -bottom-0.5 -right-0.5 h-4 w-4 rounded-full border-2 border-background bg-emerald-400" />
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                  </span>
+                  Available for opportunities
+                </div>
               </div>
             </Reveal>
             <Reveal delay={0.05}>
@@ -155,6 +163,13 @@ export default function Home() {
                   className="rounded-full border border-border px-7 py-3 font-medium transition-colors hover:border-accent hover:text-accent"
                 >
                   Get in touch
+                </a>
+                <a
+                  href="/Anup_Munda_Resume.pdf"
+                  download
+                  className="rounded-full border border-border px-7 py-3 font-medium transition-colors hover:border-accent hover:text-accent"
+                >
+                  Download CV ↓
                 </a>
               </div>
             </Reveal>
@@ -329,14 +344,7 @@ export default function Home() {
               </p>
             </Reveal>
             <Reveal delay={0.24}>
-              <div className="mt-10 flex justify-center">
-                <a
-                  href={social.email}
-                  className="rounded-full bg-foreground px-8 py-4 font-medium text-background transition-transform hover:-translate-y-0.5"
-                >
-                  Say Hello
-                </a>
-              </div>
+              <ContactForm />
             </Reveal>
             <Reveal delay={0.3}>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
