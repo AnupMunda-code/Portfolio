@@ -123,8 +123,8 @@ export default function Home() {
           <section className="flex min-h-[88vh] flex-col justify-center py-20">
             <Reveal>
               <div className="mb-7 flex items-center gap-4">
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-accent via-accent2 to-accent3 text-xl font-bold text-background">
-                  AM
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-accent via-accent2 to-accent3 text-sm font-bold tracking-tight text-background">
+                  ANMA
                   <span className="absolute -bottom-0.5 -right-0.5 h-4 w-4 rounded-full border-2 border-background bg-emerald-400" />
                 </div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted">
@@ -232,15 +232,18 @@ export default function Home() {
             <Reveal>
               <SectionLabel index="02">Skills &amp; Tech</SectionLabel>
             </Reveal>
-            <div className="flex flex-wrap gap-3">
-              {skills.map((skill, i) => (
-                <Reveal key={skill} delay={i * 0.04}>
-                  <span className="glass rounded-xl px-5 py-2.5 font-mono text-sm transition-colors hover:border-accent hover:text-accent">
+            <Reveal>
+              <ul className="flex flex-wrap gap-3">
+                {skills.map((skill) => (
+                  <li
+                    key={skill}
+                    className="glass rounded-xl px-5 py-2.5 font-mono text-sm leading-none transition-colors hover:border-accent hover:text-accent"
+                  >
                     {skill}
-                  </span>
-                </Reveal>
-              ))}
-            </div>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
           </section>
 
           {/* What I Do */}
