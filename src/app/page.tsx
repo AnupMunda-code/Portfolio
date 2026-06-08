@@ -222,11 +222,11 @@ export default function Home() {
                   enjoy learning, experimenting, and turning ideas into things that work.
                 </p>
                 <p>
-                  Lately I&apos;ve been diving into{" "}
-                  <span className="text-foreground">artificial intelligence</span> and
-                  machine learning — exploring how AI tools and models are changing the
-                  way we build software and solve problems. It&apos;s an exciting space,
-                  and I love seeing how fast it&apos;s evolving.
+                  I also work with{" "}
+                  <span className="text-foreground">artificial intelligence</span> to
+                  build projects and enhance my work — using modern AI tools alongside
+                  other technologies to work smarter, move faster, and bring better ideas
+                  to life.
                 </p>
                 <p>
                   I&apos;m a firm believer in continuous learning. There&apos;s always
