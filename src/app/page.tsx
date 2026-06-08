@@ -5,6 +5,7 @@ import { ParallaxOrbs } from "@/components/ParallaxOrbs";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ContactForm } from "@/components/ContactForm";
 import { BackToTop } from "@/components/BackToTop";
+import { MobileNav } from "@/components/MobileNav";
 
 const stats = [
   { value: 9, suffix: "+", label: "Technologies" },
@@ -86,9 +87,9 @@ const socialLinks = [
 
 function SectionLabel({ index, children }: { index: string; children: React.ReactNode }) {
   return (
-    <div className="mb-10 flex items-center gap-4">
+    <div className="mb-8 flex items-center gap-3 sm:mb-10 sm:gap-4">
       <span className="font-mono text-sm text-accent">{index}</span>
-      <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{children}</h2>
+      <h2 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">{children}</h2>
       <span className="h-px flex-1 bg-border" />
     </div>
   );
@@ -103,11 +104,11 @@ export default function Home() {
       <div className="relative z-[2]">
         {/* Nav */}
         <header id="top" className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur-md md:backdrop-blur-xl">
-          <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+          <nav className="mx-auto flex max-w-5xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
             <Link href="/" className="font-mono text-lg font-bold">
               anup<span className="gradient-text">.dev</span>
             </Link>
-            <div className="flex items-center gap-7">
+            <div className="flex items-center gap-4 sm:gap-7">
               <div className="hidden gap-7 text-sm text-muted sm:flex">
                 <a href="#about" className="transition-colors hover:text-foreground">About</a>
                 <a href="#skills" className="transition-colors hover:text-foreground">Skills</a>
@@ -115,15 +116,16 @@ export default function Home() {
                 <a href="#contact" className="transition-colors hover:text-foreground">Contact</a>
               </div>
               <ThemeToggle />
+              <MobileNav />
             </div>
           </nav>
         </header>
 
-        <main className="mx-auto w-full max-w-5xl px-6">
+        <main className="mx-auto w-full max-w-5xl px-5 sm:px-6 lg:px-8">
           {/* Hero */}
-          <section className="flex min-h-[88vh] flex-col justify-center py-20">
+          <section className="flex min-h-[88vh] flex-col justify-center py-16 sm:py-20">
             <Reveal>
-              <div className="mb-7 flex items-center gap-4">
+              <div className="mb-7 flex flex-wrap items-center gap-3 sm:gap-4">
                 <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-accent via-accent2 to-accent3 text-sm font-bold tracking-tight text-background">
                   ANMA
                   <span className="absolute -bottom-0.5 -right-0.5 h-4 w-4 rounded-full border-2 border-background bg-emerald-400" />
@@ -138,37 +140,37 @@ export default function Home() {
               </div>
             </Reveal>
             <Reveal delay={0.05}>
-              <h1 className="text-6xl font-bold leading-[0.95] tracking-tight sm:text-8xl">
+              <h1 className="text-5xl font-bold leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
                 Anup
                 <br />
                 <span className="gradient-text">Munda.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12}>
-              <p className="mt-8 max-w-xl text-lg text-muted sm:text-xl">
+              <p className="mt-6 max-w-xl text-base text-muted sm:mt-8 sm:text-lg lg:text-xl">
                 A <span className="text-foreground">MERN stack developer</span> crafting
                 full-stack web applications with MongoDB, Express, React, and Node.js —
                 turning ideas into fast, polished products.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
                 <a
                   href="#projects"
-                  className="rounded-full bg-foreground px-7 py-3 font-medium text-background transition-transform hover:-translate-y-0.5"
+                  className="rounded-full bg-foreground px-6 py-3 font-medium text-background transition-transform hover:-translate-y-0.5 sm:px-7"
                 >
                   View my work
                 </a>
                 <a
                   href={social.email}
-                  className="rounded-full border border-border px-7 py-3 font-medium transition-colors hover:border-accent hover:text-accent"
+                  className="rounded-full border border-border px-6 py-3 font-medium transition-colors hover:border-accent hover:text-accent sm:px-7"
                 >
                   Get in touch
                 </a>
                 <a
                   href="/Anup_Munda_Resume.pdf"
                   download
-                  className="rounded-full border border-border px-7 py-3 font-medium transition-colors hover:border-accent hover:text-accent"
+                  className="rounded-full border border-border px-6 py-3 font-medium transition-colors hover:border-accent hover:text-accent sm:px-7"
                 >
                   Download CV ↓
                 </a>
@@ -177,12 +179,12 @@ export default function Home() {
           </section>
 
           {/* Marquee */}
-          <div className="marquee-mask -mx-6 border-y border-border py-6">
-            <div className="marquee-track gap-10">
+          <div className="marquee-mask -mx-5 border-y border-border py-5 sm:-mx-6 sm:py-6 lg:-mx-8">
+            <div className="marquee-track gap-8 sm:gap-10">
               {[...marqueeItems, ...marqueeItems].map((item, i) => (
                 <span
                   key={i}
-                  className="flex items-center gap-10 font-mono text-2xl text-muted sm:text-3xl"
+                  className="flex items-center gap-8 font-mono text-xl text-muted sm:gap-10 sm:text-2xl lg:text-3xl"
                 >
                   {item}
                   <span className="text-accent">✦</span>
@@ -192,11 +194,11 @@ export default function Home() {
           </div>
 
           {/* Stats */}
-          <section className="grid grid-cols-2 gap-6 py-20 sm:grid-cols-4">
+          <section className="grid grid-cols-2 gap-6 py-12 sm:grid-cols-4 sm:py-20">
             {stats.map((stat, i) => (
               <Reveal key={stat.label} delay={i * 0.08}>
                 <div className="text-center sm:text-left">
-                  <div className="text-4xl font-bold tracking-tight sm:text-5xl">
+                  <div className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                     <span className="gradient-text">
                       <Counter to={stat.value} suffix={stat.suffix} />
                     </span>
@@ -208,12 +210,12 @@ export default function Home() {
           </section>
 
           {/* About */}
-          <section id="about" className="py-24">
+          <section id="about" className="py-16 sm:py-24">
             <Reveal>
               <SectionLabel index="01">About</SectionLabel>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-muted">
+              <div className="max-w-2xl space-y-5 text-base leading-relaxed text-muted sm:text-lg">
                 <p>
                   Hello! I&apos;m Anup, a developer focused on the MERN stack. I love
                   turning ideas into functional, well-built web applications — from
@@ -229,7 +231,7 @@ export default function Home() {
           </section>
 
           {/* Skills */}
-          <section id="skills" className="py-24">
+          <section id="skills" className="py-16 sm:py-24">
             <Reveal>
               <SectionLabel index="02">Skills &amp; Tech</SectionLabel>
             </Reveal>
@@ -248,7 +250,7 @@ export default function Home() {
           </section>
 
           {/* What I Do */}
-          <section className="py-24">
+          <section className="py-16 sm:py-24">
             <Reveal>
               <SectionLabel index="03">What I Do</SectionLabel>
             </Reveal>
@@ -280,7 +282,7 @@ export default function Home() {
           </section>
 
           {/* Projects */}
-          <section id="projects" className="py-24">
+          <section id="projects" className="py-16 sm:py-24">
             <Reveal>
               <SectionLabel index="04">Projects</SectionLabel>
             </Reveal>
@@ -331,12 +333,12 @@ export default function Home() {
           </section>
 
           {/* Contact */}
-          <section id="contact" className="py-24 text-center">
+          <section id="contact" className="py-16 text-center sm:py-24">
             <Reveal>
               <p className="font-mono text-sm text-accent">05 — What&apos;s next</p>
             </Reveal>
             <Reveal delay={0.08}>
-              <h2 className="mx-auto mt-4 max-w-2xl text-4xl font-bold tracking-tight sm:text-6xl">
+              <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 Let&apos;s build something{" "}
                 <span className="gradient-text">together.</span>
               </h2>
@@ -370,7 +372,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="border-t border-border">
-          <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 font-mono text-sm text-muted sm:flex-row">
+          <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-5 py-8 text-center font-mono text-sm text-muted sm:flex-row sm:px-6 sm:text-left lg:px-8">
             <span>Designed &amp; built by Anup Munda · Next.js &amp; Tailwind CSS</span>
             <BackToTop />
           </div>
