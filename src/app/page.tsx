@@ -1,5 +1,42 @@
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
+import { Counter } from "@/components/Counter";
+
+const stats = [
+  { value: 9, suffix: "+", label: "Technologies" },
+  { value: 1, suffix: "", label: "Featured project" },
+  { value: 100, suffix: "%", label: "Dedication" },
+  { value: 24, suffix: "/7", label: "Always learning" },
+];
+
+const services = [
+  {
+    title: "Frontend",
+    desc: "Building responsive, accessible interfaces with React and Tailwind CSS that feel fast and polished.",
+    items: ["React", "Tailwind", "Responsive UI"],
+  },
+  {
+    title: "Backend",
+    desc: "Designing REST APIs and data models with Node.js, Express, and MongoDB that scale cleanly.",
+    items: ["Node.js", "Express", "MongoDB"],
+  },
+  {
+    title: "Full-Stack",
+    desc: "Shipping complete MERN applications end-to-end — from database schema to deployed product.",
+    items: ["MERN", "Auth", "Deployment"],
+  },
+];
+
+const marqueeItems = [
+  "MongoDB",
+  "Express",
+  "React",
+  "Node.js",
+  "TypeScript",
+  "Tailwind CSS",
+  "REST APIs",
+  "Git",
+];
 
 const skills = [
   "MongoDB",
@@ -65,7 +102,7 @@ export default function Home() {
 
       <div className="relative z-[2]">
         {/* Nav */}
-        <header className="sticky top-0 z-20 border-b border-border bg-background/60 backdrop-blur-xl">
+        <header id="top" className="sticky top-0 z-20 border-b border-border bg-background/60 backdrop-blur-xl">
           <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
             <Link href="/" className="font-mono text-lg font-bold">
               anup<span className="gradient-text">.dev</span>
@@ -123,6 +160,37 @@ export default function Home() {
             </Reveal>
           </section>
 
+          {/* Marquee */}
+          <div className="marquee-mask -mx-6 border-y border-border py-6">
+            <div className="marquee-track gap-10">
+              {[...marqueeItems, ...marqueeItems].map((item, i) => (
+                <span
+                  key={i}
+                  className="flex items-center gap-10 font-mono text-2xl text-muted sm:text-3xl"
+                >
+                  {item}
+                  <span className="text-accent">✦</span>
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Stats */}
+          <section className="grid grid-cols-2 gap-6 py-20 sm:grid-cols-4">
+            {stats.map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 0.08}>
+                <div className="text-center sm:text-left">
+                  <div className="text-4xl font-bold tracking-tight sm:text-5xl">
+                    <span className="gradient-text">
+                      <Counter to={stat.value} suffix={stat.suffix} />
+                    </span>
+                  </div>
+                  <div className="mt-2 text-sm text-muted">{stat.label}</div>
+                </div>
+              </Reveal>
+            ))}
+          </section>
+
           {/* About */}
           <section id="about" className="py-24">
             <Reveal>
@@ -160,10 +228,42 @@ export default function Home() {
             </div>
           </section>
 
+          {/* What I Do */}
+          <section className="py-24">
+            <Reveal>
+              <SectionLabel index="03">What I Do</SectionLabel>
+            </Reveal>
+            <div className="grid gap-6 md:grid-cols-3">
+              {services.map((service, i) => (
+                <Reveal key={service.title} delay={i * 0.1}>
+                  <div className="glass group h-full rounded-2xl p-7 transition-all hover:-translate-y-1 hover:border-accent/50">
+                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border font-mono text-accent">
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
+                    <h3 className="text-xl font-bold">{service.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
+                      {service.desc}
+                    </p>
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {service.items.map((item) => (
+                        <li
+                          key={item}
+                          className="rounded-md border border-border px-2.5 py-1 font-mono text-xs text-accent2"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+
           {/* Projects */}
           <section id="projects" className="py-24">
             <Reveal>
-              <SectionLabel index="03">Projects</SectionLabel>
+              <SectionLabel index="04">Projects</SectionLabel>
             </Reveal>
             <div className="grid gap-6">
               {projects.map((project, i) => (
@@ -214,7 +314,7 @@ export default function Home() {
           {/* Contact */}
           <section id="contact" className="py-24 text-center">
             <Reveal>
-              <p className="font-mono text-sm text-accent">04 — What&apos;s next</p>
+              <p className="font-mono text-sm text-accent">05 — What&apos;s next</p>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="mx-auto mt-4 max-w-2xl text-4xl font-bold tracking-tight sm:text-6xl">
@@ -258,8 +358,11 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="border-t border-border">
-          <div className="mx-auto max-w-5xl px-6 py-8 text-center font-mono text-sm text-muted">
-            Designed &amp; built by Anup Munda · Next.js &amp; Tailwind CSS
+          <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 font-mono text-sm text-muted sm:flex-row">
+            <span>Designed &amp; built by Anup Munda · Next.js &amp; Tailwind CSS</span>
+            <a href="#top" className="transition-colors hover:text-accent">
+              Back to top ↑
+            </a>
           </div>
         </footer>
       </div>
