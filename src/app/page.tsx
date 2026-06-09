@@ -493,7 +493,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     aria-label={link.label}
                     title={link.label}
-                    className="glass flex h-12 w-12 items-center justify-center rounded-full text-muted transition-colors hover:border-accent hover:text-accent"
+                    className="glass float-on-hover flex h-12 w-12 items-center justify-center rounded-full text-muted hover:border-accent hover:text-accent"
                   >
                     <link.Icon />
                   </a>

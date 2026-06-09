@@ -130,6 +130,25 @@ html.light .orb {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* Floating icon on hover */
+@keyframes icon-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.float-on-hover {
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.float-on-hover:hover {
+  animation: icon-float 1.2s ease-in-out infinite;
+}
+
 /* Infinite marquee */
 @keyframes marquee {
   from {
@@ -172,6 +191,10 @@ html.light .orb {
   }
   .marquee-track {
     animation: none;
+  }
+  .float-on-hover:hover {
+    animation: none;
+    transform: translateY(-3px);
   }
   html {
     scroll-behavior: auto;
