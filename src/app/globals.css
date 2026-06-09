@@ -146,7 +146,7 @@ html.light .orb {
 }
 
 .float-on-hover:hover {
-  animation: icon-float 1.2s ease-in-out infinite;
+  animation: icon-float 0.7s ease-in-out infinite;
 }
 
 /* Infinite marquee */
