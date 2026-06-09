@@ -289,7 +289,7 @@ export default function Home() {
                 {skills.map((skill) => (
                   <li
                     key={skill}
-                    className="glass rounded-xl px-5 py-2.5 font-mono text-sm leading-none transition-colors hover:border-accent hover:text-accent"
+                    className="glass float-on-hover rounded-xl px-5 py-2.5 font-mono text-sm leading-none hover:border-accent hover:text-accent"
                   >
                     {skill}
                   </li>
