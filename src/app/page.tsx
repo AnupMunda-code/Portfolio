@@ -59,7 +59,7 @@ const projects = [
   {
     title: "Inventory Management System",
     description:
-      "A full-stack MERN application to track stock, manage products, and monitor inventory levels in real time. Includes CRUD operations for products, low-stock alerts, and a clean dashboard for an at-a-glance overview.",
+      "A full-stack MERN application built with a team during my internship to track stock, manage products, and monitor inventory levels in real time. Includes CRUD operations for products, low-stock alerts, and a clean dashboard for an at-a-glance overview.",
     tech: ["MongoDB", "Express", "React", "Node.js"],
     repo: "https://github.com/AnupMunda-code",
     demo: "#",
@@ -73,9 +73,9 @@ const experience = [
     href: "https://venturingdigitally.com/",
     period: "Jun 2025 – Sep 2025",
     points: [
-      "Built and maintained full-stack web applications using MongoDB, Express, React, and Node.js.",
+      "Built an Inventory Management System with a team using the MERN stack (MongoDB, Express, React, Node.js).",
       "Developed responsive user interfaces and integrated REST APIs end-to-end.",
-      "Collaborated on real-world projects, improving code quality and delivery.",
+      "Collaborated in a team environment on a real-world product, improving code quality and delivery.",
     ],
   },
 ];
