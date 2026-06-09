@@ -66,6 +66,37 @@ const projects = [
   },
 ];
 
+const experience = [
+  {
+    role: "MERN Stack Developer Intern",
+    company: "Venturing Digitally",
+    href: "https://venturingdigitally.com/",
+    period: "Jun 2025 – Sep 2025",
+    points: [
+      "Built and maintained full-stack web applications using MongoDB, Express, React, and Node.js.",
+      "Developed responsive user interfaces and integrated REST APIs end-to-end.",
+      "Collaborated on real-world projects, improving code quality and delivery.",
+    ],
+  },
+];
+
+const certifications = [
+  {
+    title: "Claude Code in Action",
+    issuer: "Anthropic",
+    meta: "Credential ID: 78xgy28gvwvp",
+    file: "/certificates/Claude_Code_in_Action.pdf",
+    verify: "https://verify.skilljar.com/c/78xgy28gvwvp",
+  },
+  {
+    title: "Technology Job Simulation",
+    issuer: "Deloitte · via Forage",
+    meta: "Dec 2025 · Coding & Development",
+    file: "/certificates/Deloitte_Technology_Job_Simulation.pdf",
+    verify: "",
+  },
+];
+
 const social = {
   email: "mailto:anupmunda03@gmail.com",
   github: "https://github.com/AnupMunda-code",
@@ -112,6 +143,7 @@ export default function Home() {
               <div className="hidden gap-7 text-sm text-muted sm:flex">
                 <a href="#about" className="transition-colors hover:text-foreground">About</a>
                 <a href="#skills" className="transition-colors hover:text-foreground">Skills</a>
+                <a href="#experience" className="transition-colors hover:text-foreground">Experience</a>
                 <a href="#projects" className="transition-colors hover:text-foreground">Projects</a>
                 <a href="#contact" className="transition-colors hover:text-foreground">Contact</a>
               </div>
@@ -286,10 +318,51 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Experience */}
+          <section id="experience" className="py-16 sm:py-24">
+            <Reveal>
+              <SectionLabel index="04">Experience</SectionLabel>
+            </Reveal>
+            <div className="relative border-l border-border pl-6 sm:pl-8">
+              {experience.map((job, i) => (
+                <Reveal key={job.company} delay={i * 0.1}>
+                  <div className="relative pb-2">
+                    <span className="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full bg-accent ring-4 ring-background sm:-left-[39px]" />
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                      <h3 className="text-lg font-bold sm:text-xl">{job.role}</h3>
+                      <span className="font-mono text-xs text-accent sm:text-sm">
+                        {job.period}
+                      </span>
+                    </div>
+                    <a
+                      href={job.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-block text-sm font-medium text-muted transition-colors hover:text-accent"
+                    >
+                      {job.company} ↗
+                    </a>
+                    <ul className="mt-4 space-y-2">
+                      {job.points.map((point) => (
+                        <li
+                          key={point}
+                          className="flex gap-3 text-sm leading-relaxed text-muted sm:text-base"
+                        >
+                          <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+
           {/* Projects */}
           <section id="projects" className="py-16 sm:py-24">
             <Reveal>
-              <SectionLabel index="04">Projects</SectionLabel>
+              <SectionLabel index="05">Projects</SectionLabel>
             </Reveal>
             <div className="grid gap-6">
               {projects.map((project, i) => (
@@ -337,10 +410,51 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Certifications */}
+          <section id="certifications" className="py-16 sm:py-24">
+            <Reveal>
+              <SectionLabel index="06">Certifications</SectionLabel>
+            </Reveal>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {certifications.map((cert, i) => (
+                <Reveal key={cert.title} delay={i * 0.1}>
+                  <div className="glass group flex h-full flex-col rounded-2xl p-6 transition-all hover:-translate-y-1 hover:border-accent/50 sm:p-7">
+                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border text-accent">
+                      <span className="text-lg">🏆</span>
+                    </div>
+                    <h3 className="text-lg font-bold sm:text-xl">{cert.title}</h3>
+                    <p className="mt-1 text-sm font-medium text-accent2">{cert.issuer}</p>
+                    <p className="mt-2 font-mono text-xs text-muted">{cert.meta}</p>
+                    <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+                      <a
+                        href={cert.file}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-foreground transition-colors hover:text-accent"
+                      >
+                        View certificate →
+                      </a>
+                      {cert.verify && (
+                        <a
+                          href={cert.verify}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted transition-colors hover:text-accent"
+                        >
+                          Verify ↗
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+
           {/* Contact */}
           <section id="contact" className="py-16 text-center sm:py-24">
             <Reveal>
-              <p className="font-mono text-sm text-accent">05 — What&apos;s next</p>
+              <p className="font-mono text-sm text-accent">07 — What&apos;s next</p>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
