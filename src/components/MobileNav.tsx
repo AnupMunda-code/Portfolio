@@ -39,8 +39,12 @@ export function MobileNav() {
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            exit={{
+              opacity: 0,
+              height: 0,
+              transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
+            }}
+            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
             className="absolute left-0 right-0 top-full overflow-hidden border-b border-border bg-background/95 backdrop-blur-md"
           >
             <div className="mx-auto flex max-w-5xl flex-col px-5 py-2">
